@@ -8,7 +8,7 @@ export const everythingApi = createApi({
     tagTypes:['Everything'],
     endpoints:(builder) => ({
         getData:builder.query<any,any>({
-            query: () => `/everything`,
+            query: (param) => `/everything?q=${param}`,
             providesTags: (result) =>
             result?.content
             ? [
@@ -20,3 +20,5 @@ export const everythingApi = createApi({
     })
     
 })
+
+export const {useGetDataQuery} = everythingApi

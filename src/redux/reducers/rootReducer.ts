@@ -1,10 +1,10 @@
-import everything from "./everything";
+import everything from "./everythingSlice";
 import { combineReducers } from '@reduxjs/toolkit';
-import auth from "./auth";
+import auth from "./authSlice";
 
-const rootReducer = combineReducers({
+const reducers = combineReducers({
 	everything: everything,
     auth:auth
 
 });
-export default rootReducer;
+export default reducers;
