@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { everythingApi } from "../../services/everythingApi";
 
 const initialState = {
-    everything:null
+    everything:{}
 };
 
 const everythingSlice = createSlice({

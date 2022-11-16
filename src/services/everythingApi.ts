@@ -1,18 +1,19 @@
 
 import { createApi } from '@reduxjs/toolkit/query/react'
 import { baseQuery } from '../utils/constant'
+import { EverythingResponse } from '../utils'
 
 export const everythingApi = createApi({
-    reducerPath:'authApi',
+    reducerPath:'everythingApi',
     baseQuery:baseQuery,
     tagTypes:['Everything'],
     endpoints:(builder) => ({
-        getData:builder.query<any,any>({
+        getData:builder.query<EverythingResponse, string>({
             query: (param) => `/everything?q=${param}`,
             providesTags: (result) =>
-            result?.content
+            result?.articles
             ? [
-                ...result.content.map(({ id }:any) => ({ type: 'Everything' as const, id })),
+                ...result.articles.map(({ id }:any) => ({ type: 'Everything' as const, id })),
                 { type: 'Everything', id: 'LIST' },
                 ]
             : [{ type: 'Everything', id: 'LIST' }],
